@@ -43,7 +43,7 @@ public class Restaurant {
         return this.menu;
     }
 
-    private Item findItemByName(String itemName){
+    public Item findItemByName(String itemName){
         for(Item item: menu) {
             if(item.getName().equals(itemName))
                 return item;
@@ -75,6 +75,14 @@ public class Restaurant {
 
     public String getName() {
         return name;
+    }
+
+    public int getSelectedItemPrice(List<String> selectedItems) {
+        int price = 0;
+        for(String item: selectedItems) {
+            price += findItemByName(item).getPrice();
+        }
+        return price;
     }
 
 }

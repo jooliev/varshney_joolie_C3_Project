@@ -2,6 +2,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalTime;
+import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -61,15 +62,19 @@ class RestaurantTest {
     }
     @Test
     public void when_item_added_order_total_greater_than_zero() {
+        create_restaurant();
+        assertEquals(388, restaurant.getSelectedItemPrice(Arrays.asList("Sweet corn soup","Vegetable lasagne")));
     }
     @Test
     public void when_item_not_added_order_total_equals_zero() {
-
+        create_restaurant();
+        assertEquals(0, restaurant.getSelectedItemPrice(Arrays.asList()));
     }
 
     @Test
-    public void when_item_added_not_available_in_restaurant_list() throws itemNotFoundException{
-
+    public void when_item_added_not_available_in_restaurant_list_than_it_throws_exception() throws itemNotFoundException{
+        create_restaurant();
+        assertNull( restaurant.findItemByName("Cookie"));
     }
 
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
