@@ -59,5 +59,18 @@ class RestaurantTest {
         assertThrows(itemNotFoundException.class,
                 ()->restaurant.removeFromMenu("French fries"));
     }
+    @Test
+    public void when_item_added_order_total_greater_than_zero() {
+    }
+    @Test
+    public void when_item_not_added_order_total_equals_zero() {
+
+    }
+
+    @Test
+    public void when_item_added_not_available_in_restaurant_list() throws itemNotFoundException{
+
+    }
+
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 }
